@@ -71,16 +71,11 @@ def add_comment_to_post(request, pk):
 @login_required
 def search(request):
     postt_list = Post.objects.all()
-    postt_filter = UserFilter(request.GET, queryset=user_list)
-    return render(request, 'search/user_list.html', {'filter': user_filter})
-
-def search(request):
-    postt_list = Post.objects.all()
     post_filter = PostFilter(request.GET, queryset=postt_list)
     return render(request, 'blog/search_list.html', {'filter': post_filter})
 
 
-
+@login_required
 def like(request, pk):
     post = get_object_or_404(Post, pk=pk)
     likes = Addlikes.objects.all()

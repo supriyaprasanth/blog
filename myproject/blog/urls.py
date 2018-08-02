@@ -11,6 +11,7 @@ urlpatterns = [
     url(r'^post/(?P<pk>\d+)/comment/$', views.add_comment_to_post, name='add_comment_to_post'),
     path('accounts/', include('django.contrib.auth.urls')),
     url(r'^search/$', views.search, name='search'),
+    #path('search/', views.search, name='search'),
     url(r'^like/(?P<pk>\d+)/', views.like, name = 'like'),
 
 ]

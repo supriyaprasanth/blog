@@ -28,5 +28,4 @@ class Addlikes(models.Model):
     text = models.TextField()
     liketime = models.DateTimeField(auto_now_add=True)
 
-    def __str__(self):
-        return self.post
+    
