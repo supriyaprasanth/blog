@@ -1,6 +1,6 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, HttpResponseRedirect
 from django.utils import timezone
-from .models import Post, Comment
+from .models import Post, Comment, Addlikes
 from .forms import PostForm, CommentForm
 from django.shortcuts import redirect
 from django.contrib.auth.decorators import login_required
@@ -78,3 +78,17 @@ def search(request):
     postt_list = Post.objects.all()
     post_filter = PostFilter(request.GET, queryset=postt_list)
     return render(request, 'blog/search_list.html', {'filter': post_filter})
+
+
+
+def like(request, pk):
+    post = get_object_or_404(Post, pk=pk)
+    likes = Addlikes.objects.all()
+    print (post) 
+    if request.method == "GET":
+        p = Post.objects.get(pk=pk)
+        p.likes+=1
+        p.save()
+        b = Addlikes(post=post, author=request.user)
+        b.save()
+    return redirect('post_list')

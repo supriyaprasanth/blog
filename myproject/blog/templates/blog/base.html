@@ -3,9 +3,12 @@
     <head>
         <title>post_list page</title>
         <link href='https://fonts.googleapis.com/css?family=Aclonica' rel='stylesheet'>
+        <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Merienda" rel="stylesheet">  
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
 		<link rel="stylesheet" href="{% static 'css/blog.css' %}">		
+
     </head>
     <body>
 	    <div class="page-header">
@@ -15,7 +18,7 @@
 		     	<a href="{% url 'post_new' %}" class="top-post"><span class="glyphicon glyphicon-plus"></span></a>
 		       	
 
-		        <p class="top-menu1"><font size="6"><i>Welcome,</i></font> {{ user.username }} </p>
+		        <p class="top-menu1">Welcome, {{ user.username }} </p>
 		    {% else %}
 		     	<a href="{% url 'login' %}" class="top-login"><span class="glyphicon glyphicon-log-in"></span></span></a> 
 		    	<a href="{% url 'signup' %}" class="top-signup"><span class="glyphicon glyphicon-user"></span></a>
