@@ -11,11 +11,13 @@
             </div>
             <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
             <p>{{ post.text|linebreaksbr }}</p>
-            like :{{ post.likes }}
-            <br>
+            
+            
             
             <a class="btn btn-default" href="{% url 'like' post.id %}"><span class="glyphicon glyphicon-thumbs-up"></a>
-            <a href="{% url 'post_detail' pk=post.pk %}"> Comments: {{ post.comments.count }}</a> <br><br><br>
+                <div class="like">like :{{ post.likes }}</div>
+            <br>
+            <a href="{% url 'post_detail' pk=post.pk %}"> Comments: {{ post.comments.count }}</a> <br><hr><br>
         </div>
     {% endfor %}
 {% endblock content %}
